@@ -10,47 +10,49 @@ using API.Helpers;
 
 namespace API.Extensions
 {
-    public static class ApplicationServiceExtensions
+  public static class ApplicationServiceExtensions
+  {
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
+      services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+      services.AddDbContext<DataContext>(options =>
         {
-            services.AddDbContext<DataContext>(options =>
-              {
-                  options.UseSqlite(config.GetConnectionString("DefaultConnection"));
-              });
-            services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
-            return services;
-        }
-        public static IServiceCollection AddSwaggerGenServices(this IServiceCollection services, IConfiguration config)
-        {
-            services.AddSwaggerGen(c =>
-               {
-                   // configure SwaggerDoc and others
-                   c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
-                   // add JWT Authentication
-                   var securityScheme = new OpenApiSecurityScheme
-                   {
-                       Name = "JWT Authentication",
-                       Description = "Enter JWT Bearer token **_only_**",
-                       In = ParameterLocation.Header,
-                       Type = SecuritySchemeType.Http,
-                       Scheme = "bearer", // must be lower case
-                       BearerFormat = "JWT",
-                       Reference = new OpenApiReference
-                       {
-                           Id = JwtBearerDefaults.AuthenticationScheme,
-                           Type = ReferenceType.SecurityScheme
-                       }
-                   };
-                   c.AddSecurityDefinition(securityScheme.Reference.Id, securityScheme);
-                   c.AddSecurityRequirement(new OpenApiSecurityRequirement
-               {
-            {securityScheme, new string[] { }}
-               });
-               });
-            return services;
-        }
+          options.UseSqlite(config.GetConnectionString("DefaultConnection"));
+        });
+      services.AddScoped<ITokenService, TokenService>();
+      services.AddScoped<IUserRepository, UserRepository>();
+      services.AddScoped<IPhotoService, PhotoService>();
+      services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
+      return services;
     }
+    public static IServiceCollection AddSwaggerGenServices(this IServiceCollection services, IConfiguration config)
+    {
+      services.AddSwaggerGen(c =>
+         {
+           // configure SwaggerDoc and others
+           c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+           // add JWT Authentication
+           var securityScheme = new OpenApiSecurityScheme
+           {
+             Name = "JWT Authentication",
+             Description = "Enter JWT Bearer token **_only_**",
+             In = ParameterLocation.Header,
+             Type = SecuritySchemeType.Http,
+             Scheme = "bearer", // must be lower case
+             BearerFormat = "JWT",
+             Reference = new OpenApiReference
+             {
+               Id = JwtBearerDefaults.AuthenticationScheme,
+               Type = ReferenceType.SecurityScheme
+             }
+           };
+           c.AddSecurityDefinition(securityScheme.Reference.Id, securityScheme);
+           c.AddSecurityRequirement(new OpenApiSecurityRequirement
+         {
+            {securityScheme, new string[] { }}
+         });
+         });
+      return services;
+    }
+  }
 }
