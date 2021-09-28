@@ -11,10 +11,10 @@ export class BusyService {
   busy() {
     this.busyRequestCount++;
     this.spinnerService.show(undefined, {
-      type: 'line-scale-party',
-      //type: 'la-square-jelly-box',
+      //type: 'line-scale-party',
+      type: 'square-jelly-box',
       bdColor: 'rgba(255,255,255,0)',
-      color: '#333333',
+      color: '#E95420',
     });
   }
   idle() {
