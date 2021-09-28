@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { isEmpty } from 'rxjs/operators';
 import { User } from './_models/user';
 import { AccountService } from './_services/account.service';
 
@@ -16,7 +17,10 @@ export class AppComponent implements OnInit {
     this.setCurrentUser();
   }
   setCurrentUser() {
-    const user: User = JSON.parse(localStorage.getItem('user') || '{}');
+    let user: User | null = JSON.parse(localStorage.getItem('user') || '{}');
+    if (Object.keys(user as User).length === 0) {
+      user = null;
+    }
     this.accountService.setCurrentUser(user);
   }
 }

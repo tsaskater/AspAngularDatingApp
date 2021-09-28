@@ -1,6 +1,6 @@
 [
   {
-    "UserName": "Teri",
+    "Username": "Teri",
     "Gender": "female",
     "DateOfBirth": "1970-01-03",
     "KnownAs": "Teri",
@@ -19,7 +19,7 @@
     ]
   },
   {
-    "UserName": "Amelia",
+    "Username": "Amelia",
     "Gender": "female",
     "DateOfBirth": "1960-10-22",
     "KnownAs": "Amelia",
@@ -38,7 +38,7 @@
     ]
   },
   {
-    "UserName": "Eve",
+    "Username": "Eve",
     "Gender": "female",
     "DateOfBirth": "1955-11-16",
     "KnownAs": "Eve",
@@ -57,7 +57,7 @@
     ]
   },
   {
-    "UserName": "Araceli",
+    "Username": "Araceli",
     "Gender": "female",
     "DateOfBirth": "1965-07-27",
     "KnownAs": "Araceli",
@@ -76,7 +76,7 @@
     ]
   },
   {
-    "UserName": "Irma",
+    "Username": "Irma",
     "Gender": "female",
     "DateOfBirth": "1952-02-03",
     "KnownAs": "Irma",
@@ -95,7 +95,7 @@
     ]
   },
   {
-    "UserName": "Duke",
+    "Username": "Duke",
     "Gender": "male",
     "DateOfBirth": "1962-01-10",
     "KnownAs": "Duke",
@@ -114,7 +114,7 @@
     ]
   },
   {
-    "UserName": "Carroll",
+    "Username": "Carroll",
     "Gender": "male",
     "DateOfBirth": "1950-10-01",
     "KnownAs": "Carroll",
@@ -133,7 +133,7 @@
     ]
   },
   {
-    "UserName": "Moreno",
+    "Username": "Moreno",
     "Gender": "male",
     "DateOfBirth": "1973-10-26",
     "KnownAs": "Moreno",
@@ -152,7 +152,7 @@
     ]
   },
   {
-    "UserName": "Battle",
+    "Username": "Battle",
     "Gender": "male",
     "DateOfBirth": "1993-07-28",
     "KnownAs": "Battle",
@@ -171,7 +171,7 @@
     ]
   },
   {
-    "UserName": "Stuart",
+    "Username": "Stuart",
     "Gender": "male",
     "DateOfBirth": "1994-10-03",
     "KnownAs": "Stuart",
