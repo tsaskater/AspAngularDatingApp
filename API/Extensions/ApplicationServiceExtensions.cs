@@ -20,6 +20,7 @@ namespace API.Extensions
           options.UseSqlite(config.GetConnectionString("DefaultConnection"));
         });
       services.AddScoped<ITokenService, TokenService>();
+      services.AddScoped<LogUserActivity>();
       services.AddScoped<IUserRepository, UserRepository>();
       services.AddScoped<IPhotoService, PhotoService>();
       services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
