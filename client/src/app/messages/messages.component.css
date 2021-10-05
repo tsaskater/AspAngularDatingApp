@@ -1,0 +1,19 @@
+.img-circle {
+  max-height: 50px;
+}
+td button,
+td div {
+  width: 50%;
+  height: 100%;
+}
+.btn-danger {
+  background-color: #f17342;
+}
+.btn-danger:hover {
+  background-color: #fc1f02;
+}
+
+table th,
+table td {
+  padding: 0 !important;
+}
