@@ -30,7 +30,6 @@ namespace API.Controllers
       _userRepository = userRepository;
 
     }
-
     [HttpGet]
     public async Task<ActionResult<IEnumerable<MemberDTO>>> GetUsers([FromQuery] UserParams userParams)
     {
@@ -46,6 +45,7 @@ namespace API.Controllers
       Response.AddPaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
       return Ok(users);
     }
+
     [HttpGet("{username}", Name = "GetUser")]
     public async Task<ActionResult<MemberDTO>> GetUsers(string username)
     {
@@ -84,7 +84,7 @@ namespace API.Controllers
       if (await _userRepository.SaveAllAsync())
       {
         // return _mapper.Map<PhotoDto>(photo);
-        return CreatedAtRoute("GetUser", new { Username = user.Username }, _mapper.Map<PhotoDto>(photo));
+        return CreatedAtRoute("GetUser", new { Username = user.UserName }, _mapper.Map<PhotoDto>(photo));
       }
       return BadRequest("Problem adding photo");
     }
