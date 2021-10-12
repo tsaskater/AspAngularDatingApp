@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 using API.Helpers;
+using API.SignalR;
 
 namespace API.Extensions
 {
@@ -14,6 +15,7 @@ namespace API.Extensions
   {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
     {
+      services.AddSingleton<PresenceTracker>();
       services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
       services.AddDbContext<DataContext>(options =>
         {
