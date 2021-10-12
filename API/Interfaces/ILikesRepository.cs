@@ -12,7 +12,6 @@ namespace API.Interfaces
   {
     Task<UserLike> GetUserLike(int sourceUserId, int LikedUserId);
     Task<AppUser> GetUserWithLikes(int userId);
-
     Task<PagedList<LikeDto>> GetUserLikes(LikesParams likesParams);
   }
 }
